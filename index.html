@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vladino – Software Engineer</title>
+
   <style>
     :root {
       --accent: #007acc;
       --bg: #faf8f6;
       --fg: #111;
       --card: #ffffff;
+    }
+
+    [data-theme='dark'] {
+      --accent: #66d9ef;
+      --bg: #111;
+      --fg: #f0f0f0;
+      --card: #1e1e1e;
     }
 
     * {
@@ -23,13 +32,13 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
     }
 
     .container {
@@ -44,6 +53,7 @@
     header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 40px;
       font-weight: 600;
     }
@@ -59,14 +69,39 @@
       color: var(--accent);
     }
 
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      margin-left: 16px;
+      color: var(--fg);
+      transition: transform .3s;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+    }
+
     h1 {
       font-size: 2.5rem;
-      margin: 0 0 10px;
+      margin-bottom: 10px;
     }
 
     h2 {
       font-size: 1.6rem;
-      margin-top: 32px;
+      margin: 32px 0 0;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 28px 0 0;
     }
 
     ul {
@@ -80,20 +115,19 @@
     .buttons {
       margin-top: 32px;
       display: flex;
-      gap: 16px;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
     .btn {
       position: relative;
-      display: inline-block;
       padding: 10px 20px;
       border: 2px solid var(--accent);
       border-radius: 6px;
       color: var(--accent);
       background: transparent;
-      text-decoration: none;
       font-weight: 600;
+      text-decoration: none;
       overflow: hidden;
       transition: color .3s ease;
       z-index: 0;
@@ -102,15 +136,12 @@
     .btn::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: var(--accent);
-      z-index: -1;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform .3s ease;
+      z-index: -1;
     }
 
     .btn:hover::before {
@@ -118,13 +149,13 @@
     }
 
     .btn:hover {
-      color: white;
+      color: #fff;
     }
 
     .footer {
       margin-top: 40px;
       font-size: .95rem;
-      color: #333;
+      color: var(--fg);
     }
   </style>
 </head>
@@ -136,6 +167,7 @@
       <nav>
         <a href="#">Home</a>
         <a href="#contact">Contact</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
       </nav>
     </header>
 
@@ -178,6 +210,25 @@
       </div>
     </main>
   </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(mode) {
+      html.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+      toggle.textContent = (mode === 'dark') ? '🌚' : '🌞';
+    }
+
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+
+    // Apply saved preference on load:
+    setTheme(localStorage.getItem('theme') || 'light');
+  </script>
 </body>
 
 </html>
