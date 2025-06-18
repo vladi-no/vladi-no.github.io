@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vladino – Software Developer</title>
+  <title>Vladino – Software Engineer</title>
   <style>
     :root {
       --accent: #007acc;
-      --bg:     #faf8f6;
-      --fg:     #111;
-      --card:   #ffffff;
+      --bg: #faf8f6;
+      --fg: #111;
+      --card: #ffffff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
     }
 
     body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
     }
 
     .container {
@@ -34,7 +38,7 @@
       padding: 40px;
       background: var(--card);
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     header {
@@ -98,8 +102,10 @@
     .btn::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--accent);
       z-index: -1;
       transform: scaleX(0);
@@ -122,6 +128,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -135,7 +142,8 @@
     <main>
       <h2>Hi, I’m Vladino</h2>
       <p>
-        Senior software developer with Master’s degrees in Artificial Intelligence and Software Engineering, building reliable products across the stack.
+        Senior software developer with Master’s degrees in Artificial Intelligence and Software Engineering, building
+        reliable products across the stack.
       </p>
 
       <h3>Skills</h3>
@@ -171,4 +179,5 @@
     </main>
   </div>
 </body>
+
 </html>
