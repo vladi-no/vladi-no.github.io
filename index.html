@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -10,152 +9,75 @@
 
   <style>
     :root {
-      --accent: #007acc;
-      --bg: #faf8f6;
-      --fg: #111;
-      --card: #ffffff;
+      --accent:#007acc;
+      --bg:#faf8f6;
+      --fg:#111;
+      --card:#ffffff;
+    }
+    [data-theme='dark']{
+      --accent:#66d9ef;
+      --bg:#111;
+      --fg:#f0f0f0;
+      --card:#1e1e1e;
     }
 
-    [data-theme='dark'] {
-      --accent: #66d9ef;
-      --bg: #111;
-      --fg: #f0f0f0;
-      --card: #1e1e1e;
+    /* -------- base / desktop -------- */
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{
+      margin:0;padding:0;display:flex;justify-content:center;
+      font-family:'Inter',system-ui,sans-serif;
+      background:var(--bg);color:var(--fg);
     }
-
-    * {
-      box-sizing: border-box;
+    .container{
+      max-width:680px;margin:40px;padding:40px;
+      background:var(--card);border-radius:8px;
+      box-shadow:0 0 10px rgba(0,0,0,.05);
     }
-
-    html {
-      scroll-behavior: smooth;
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-bottom:40px;font-weight:600;
     }
-
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+    nav a{margin-left:16px;text-decoration:none;color:var(--fg);transition:color .2s;}
+    nav a:hover{color:var(--accent);}
+    .theme-toggle{
+      background:none;border:none;cursor:pointer;font-size:1.4rem;
+      margin-left:16px;color:var(--fg);transition:transform .3s;
     }
-
-    .container {
-      max-width: 680px;
-      margin: 40px;
-      padding: 40px;
-      background: var(--card);
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    .theme-toggle:hover{transform:rotate(20deg);}
+    h1,h2,h3{margin-top:0}
+    h1{font-size:2.5rem;margin-bottom:10px}
+    h2{font-size:1.6rem;margin:32px 0 0}
+    h3{font-size:1.4rem;margin:28px 0 0}
+    ul{padding-left:22px}
+    li{margin:6px 0}
+    .buttons{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px}
+    .btn{
+      position:relative;padding:10px 20px;border:2px solid var(--accent);
+      border-radius:6px;color:var(--accent);background:transparent;
+      font-weight:600;text-decoration:none;overflow:hidden;transition:color .3s;z-index:0;
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      font-weight: 600;
+    .btn::before{
+      content:"";position:absolute;inset:0;background:var(--accent);
+      transform:scaleX(0);transform-origin:left;transition:transform .3s;z-index:-1;
     }
+    .btn:hover::before{transform:scaleX(1)}
+    .btn:hover{color:#fff}
+    .footer{margin-top:40px;font-size:.95rem;color:var(--fg)}
 
-    nav a {
-      margin-left: 16px;
-      text-decoration: none;
-      color: var(--fg);
-      transition: color .2s;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-      margin-left: 16px;
-      color: var(--fg);
-      transition: transform .3s;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin: 32px 0 0;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-      margin: 28px 0 0;
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    .buttons {
-      margin-top: 32px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .btn {
-      position: relative;
-      padding: 10px 20px;
-      border: 2px solid var(--accent);
-      border-radius: 6px;
-      color: var(--accent);
-      background: transparent;
-      font-weight: 600;
-      text-decoration: none;
-      overflow: hidden;
-      transition: color .3s ease;
-      z-index: 0;
-    }
-
-    .btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s ease;
-      z-index: -1;
-    }
-
-    .btn:hover::before {
-      transform: scaleX(1);
-    }
-
-    .btn:hover {
-      color: #fff;
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: .95rem;
-      color: var(--fg);
+    /* -------- mobile ≤ 600px -------- */
+    @media (max-width:600px){
+      .container{margin:20px;padding:24px}
+      header{
+        flex-direction:column;align-items:flex-start;gap:12px;
+      }
+      nav a{margin-left:0;margin-right:16px}
+      .theme-toggle{margin-left:0}
+      h1{font-size:2rem}
+      h2{font-size:1.4rem}
+      h3{font-size:1.25rem}
+      .buttons{flex-direction:column;gap:12px}
+      .btn{width:100%;text-align:center}
     }
   </style>
 </head>
@@ -173,10 +95,7 @@
 
     <main>
       <h2>Hi, I’m Vladino</h2>
-      <p>
-        Senior software developer with Master’s degrees in Artificial Intelligence and Software Engineering, building
-        reliable products across the stack.
-      </p>
+      <p>Senior software developer with Master’s degrees in Artificial Intelligence and Software Engineering, building reliable products across the stack.</p>
 
       <h3>Skills</h3>
       <ul>
@@ -184,7 +103,7 @@
         <li><strong>Frontend:</strong> React, Next.js, HTML/CSS, Tailwind</li>
         <li><strong>Backend:</strong> FastAPI, Django, Node.js, Spring Boot, REST/GraphQL</li>
         <li><strong>AI / ML:</strong> TensorFlow, PyTorch, OpenAI APIs, model deployment</li>
-        <li><strong>Data:</strong> PostgreSQL, MongoDB, Pandas</li>
+        <li><strong>Data:</strong> PostgreSQL, MongoDB, InfluxDB, Pandas</li>
         <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD</li>
         <li><strong>Cloud:</strong> AWS, Vercel, DigitalOcean</li>
       </ul>
@@ -212,23 +131,25 @@
   </div>
 
   <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
+    const toggle=document.getElementById('themeToggle');
+    const html=document.documentElement;
 
-    function setTheme(mode) {
-      html.setAttribute('data-theme', mode);
-      localStorage.setItem('theme', mode);
-      toggle.textContent = (mode === 'dark') ? '🌚' : '🌞';
+    function setTheme(mode){
+      html.setAttribute('data-theme',mode);
+      localStorage.setItem('theme',mode);
+      toggle.textContent=(mode==='dark')?'🌚':'🌞';
     }
-
-    toggle.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    toggle.addEventListener('click',()=>{
+      const next=html.getAttribute('data-theme')==='dark'?'light':'dark';
       setTheme(next);
     });
 
-    // Apply saved preference on load:
-    setTheme(localStorage.getItem('theme') || 'light');
+    const saved=localStorage.getItem('theme');
+    if(saved){setTheme(saved);}
+    else{
+      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark?'dark':'light');
+    }
   </script>
 </body>
-
 </html>
