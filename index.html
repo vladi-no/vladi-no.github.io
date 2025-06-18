@@ -5,65 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vladino – Software Developer</title>
   <style>
+    :root {
+      --accent: #007acc;
+      --bg:     #faf8f6;
+      --fg:     #111;
+      --card:   #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: #faf8f6;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
-      color: #111;
-    }
-
-    a {
-      text-decoration: none;
-      color: #333;
-      margin-left: 16px;
-      font-weight: normal;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: #007acc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
     }
 
     .container {
-      max-width: 640px;
+      max-width: 680px;
       margin: 40px;
-      background: #fff;
       padding: 40px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      background: var(--card);
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     header {
       display: flex;
       justify-content: space-between;
-      font-weight: bold;
       margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 16px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
     }
 
     h2 {
-      font-size: 1.5rem;
-      margin-top: 30px;
+      font-size: 1.6rem;
+      margin-top: 32px;
     }
 
     ul {
-      padding-left: 20px;
+      padding-left: 22px;
     }
 
     li {
-      margin-bottom: 8px;
+      margin: 6px 0;
+    }
+
+    .buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      font-weight: 600;
+      overflow: hidden;
+      transition: color .3s ease;
+      z-index: 0;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn:hover {
+      color: white;
     }
 
     .footer {
       margin-top: 40px;
-      font-size: 1rem;
+      font-size: .95rem;
       color: #333;
     }
   </style>
@@ -74,27 +128,45 @@
       <div>vladi.no</div>
       <nav>
         <a href="#">Home</a>
-        <a href="#">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
+
     <main>
-      <h1>Hi, I’m Vladino</h1>
-      <p>I'm a senior software developer holding Master's degrees in Artificial Intelligence and Software Engineering.</p>
-      
-      <h2>Skills</h2>
+      <h2>Hi, I’m Vladino</h2>
+      <p>
+        Senior software developer with Master’s degrees in Artificial Intelligence and Software Engineering, building reliable products across the stack.
+      </p>
+
+      <h3>Skills</h3>
       <ul>
-        <li><strong>Programming Languages:</strong> Python, JavaScript, TypeScript, Java</li>
-        <li><strong>Frontend:</strong> React, Next.js, HTML/CSS, Tailwind CSS</li>
-        <li><strong>Backend & APIs:</strong> FastAPI, Django, Node.js, Spring Boot, REST, GraphQL</li>
-        <li><strong>Machine Learning & AI:</strong> TensorFlow, PyTorch, OpenAI APIs, model training and deployment</li>
-        <li><strong>Data:</strong> PostgreSQL, MongoDB, SQLite, Pandas, NumPy</li>
-        <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD pipelines</li>
-        <li><strong>Cloud & Hosting:</strong> AWS, Vercel, Heroku, DigitalOcean</li>
-        <li><strong>Workflow:</strong> Remote work, async collaboration, agile delivery, clean code practices</li>
+        <li><strong>Languages:</strong> Python, JavaScript/TypeScript, Java</li>
+        <li><strong>Frontend:</strong> React, Next.js, HTML/CSS, Tailwind</li>
+        <li><strong>Backend:</strong> FastAPI, Django, Node.js, Spring Boot, REST/GraphQL</li>
+        <li><strong>AI / ML:</strong> TensorFlow, PyTorch, OpenAI APIs, model deployment</li>
+        <li><strong>Data:</strong> PostgreSQL, MongoDB, Pandas</li>
+        <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD</li>
+        <li><strong>Cloud:</strong> AWS, Vercel, DigitalOcean</li>
       </ul>
 
+      <h3>Values</h3>
+      <ul>
+        <li>Practical solutions that help people and the planet</li>
+        <li>Sustainability, conservation, reducing harm</li>
+        <li>Open, accessible technology and clear communication</li>
+      </ul>
+
+      <h3 id="contact">Contact</h3>
+      <p>You can reach out to me via email or follow along on Instagram.</p>
+
+      <div class="buttons">
+        <a class="btn" href="mailto:hello@vladi.no">Email me</a>
+        <a class="btn" href="https://github.com/vladi-no" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.instagram.com/vladinolo/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
       <div class="footer">
-        I focus on building practical solutions — tools that are effective, solve real problems, and contribute to positive outcomes.
+        I focus on building tools that work, solve real problems, and support positive outcomes.
       </div>
     </main>
   </div>
