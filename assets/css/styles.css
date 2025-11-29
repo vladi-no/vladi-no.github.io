@@ -36,6 +36,20 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* ===== Links ===== */
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--accent);
+    text-decoration: none;
+}
+
 
 /* ===== Layout ===== */
 
