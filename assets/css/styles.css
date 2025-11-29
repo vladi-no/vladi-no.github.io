@@ -190,13 +190,22 @@ li {
         gap: 12px;
     }
 
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 8px;  /* tighter horizontal spacing */
+        row-gap: 4px;     /* small vertical gap if it wraps */
+    }
+
     nav a {
-        margin-left: 0;
-        margin-right: 16px;
+        margin: 0;
+        font-size: 0.95rem; /* slightly smaller so more fits per row */
     }
 
     .theme-toggle {
         margin-left: 0;
+        font-size: 1.2rem; /* a bit smaller on mobile */
     }
 
     h1 {
