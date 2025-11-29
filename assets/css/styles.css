@@ -127,7 +127,7 @@ li {
 /* ===== Buttons ===== */
 
 .buttons {
-    margin-top: 32px;
+    margin: 20px 0 32px; /* top: 24px, sides: 0, bottom: 32px */
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -173,13 +173,6 @@ li {
     margin-top: 40px;
     font-size: 0.95rem;
     color: var(--fg);
-}
-
-
-/* ===== Page-specific helpers ===== */
-
-.cv-download {
-    margin-top: 30px;
 }
 
 
