@@ -28,7 +28,8 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    min-height: 100vh; /* make sure body fills screen */
+    min-height: 100vh;
+    /* make sure body fills screen */
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg);
     color: var(--fg);
@@ -40,10 +41,12 @@ body {
 
 .container {
     max-width: 680px;
-    width: 100%; /* full width up to max */
+    width: 100%;
+    /* full width up to max */
     margin: 40px;
     padding: 40px;
-    min-height: calc(100vh - 80px); /* 100vh minus top+bottom margins (40 + 40) */
+    min-height: calc(100vh - 80px);
+    /* 100vh minus top+bottom margins (40 + 40) */
     display: flex;
     flex-direction: column;
     background: var(--card);
@@ -127,7 +130,8 @@ li {
 /* ===== Buttons ===== */
 
 .buttons {
-    margin: 20px 0 32px; /* top: 24px, sides: 0, bottom: 32px */
+    margin: 20px 0 32px;
+    /* top: 24px, sides: 0, bottom: 32px */
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -186,7 +190,7 @@ li {
 
     header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 12px;
     }
 
@@ -194,18 +198,17 @@ li {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        column-gap: 8px;  /* tighter horizontal spacing */
-        row-gap: 4px;     /* small vertical gap if it wraps */
+        column-gap: 12px;
+        row-gap: 6px;
     }
 
     nav a {
         margin: 0;
-        font-size: 0.95rem; /* slightly smaller so more fits per row */
     }
 
     .theme-toggle {
-        margin-left: 0;
-        font-size: 1.2rem; /* a bit smaller on mobile */
+        margin-left: auto;
+        font-size: 1.4rem;
     }
 
     h1 {
