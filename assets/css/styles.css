@@ -32,12 +32,18 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
-    /* make sure body fills screen */
+    min-height: 100vh; /* make sure body fills screen */
     font-family: 'Inter', system-ui, sans-serif;
-    background: var(--bg);
+    background-color: var(--bg);
     color: var(--fg);
     transition: background-color 0.2s ease, color 0.2s ease;
+
+    /* lake background */
+    background-image: url('../img/lake.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    background-attachment: fixed;  /* 👈 this line */
 }
 
 /* ===== Links ===== */
