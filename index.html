@@ -2,12 +2,32 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var mode = saved;
+
+                if (!mode) {
+                    var prefersDark = window.matchMedia &&
+                        window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    mode = prefersDark ? 'dark' : 'light';
+                }
+
+                document.documentElement.setAttribute('data-theme', mode);
+            } catch (e) {
+                // if anything fails, fall back to light
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

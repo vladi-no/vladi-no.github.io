@@ -2,6 +2,26 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var mode = saved;
+
+                if (!mode) {
+                    var prefersDark = window.matchMedia &&
+                        window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    mode = prefersDark ? 'dark' : 'light';
+                }
+
+                document.documentElement.setAttribute('data-theme', mode);
+            } catch (e) {
+                // if anything fails, fall back to light
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
