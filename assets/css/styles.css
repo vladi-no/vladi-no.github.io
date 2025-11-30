@@ -1,5 +1,6 @@
 :root {
     --accent: #006a71;
+    --accent-soft: #f6fbfc;
     --bg: #faf8f6;
     --fg: #111;
     --card: #ffffff;
@@ -7,6 +8,7 @@
 
 [data-theme='dark'] {
     --accent: #00b3b3;
+    --accent-soft: #131c1d;
     --bg: #111;
     --fg: #f0f0f0;
     --card: #1e1e1e;
@@ -128,16 +130,36 @@ h2 {
 
 h3 {
     font-size: 1.4rem;
-    margin: 12px 0 0;
+    margin: 20px 0 0;
 }
 
 ul {
     padding-left: 22px;
     margin-top: 8px;
+    margin-bottom: 1px;
 }
 
 li {
-    margin: 6px 0;
+    margin: 10px 0;
+}
+
+/* ===== Content sections (CV & portfolio) ===== */
+
+main > section {
+    margin: 24px 0;
+    padding: 16px 20px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+}
+
+main > section h3,
+main > section h4 {
+    margin-top: 0;
+}
+
+main > section p:last-child {
+    margin-bottom: 0;
 }
 
 
