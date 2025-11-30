@@ -53,6 +53,29 @@
             <h2>Portfolio</h2>
             <p>A selection of projects I’ve worked on.</p>
 
+            <!-- Company LLM / RAG assistants -->
+            <section>
+                <h3>Company Knowledge Assistants (RAG-based LLM Systems)</h3>
+                <p>
+                    For several companies in the Netherlands and the United States I designed and implemented
+                    “company LLMs” – internal assistants that understand their documentation, processes and
+                    historical data. These tools help teams find answers faster, draft content, and navigate
+                    complex internal knowledge bases without having to know exactly where things are stored.
+                </p>
+                <p>
+                    The systems use retrieval-augmented generation: relevant documents are retrieved from a
+                    vector index and passed to an LLM, so answers stay grounded in the company’s own data.
+                    Depending on the client, the model is either a hosted API (e.g. OpenAI / Anthropic) or a
+                    self-hosted open-source model such as Llama 3.
+                </p>
+                <p>
+                    <strong>Tech:</strong> Python (FastAPI/Flask), hosted and self-hosted LLMs (e.g. Llama 3 via
+                    vLLM / text-generation-inference), SentenceTransformers embeddings, vector databases
+                    (Qdrant, Pinecone, Weaviate, Chroma), S3-compatible storage, Docker-based deployment, and
+                    simple React/Next.js front-ends with company SSO (OAuth/OIDC) for internal access.
+                </p>
+            </section>
+
             <!-- Jira / Atlassian -->
             <section>
                 <h3>Jira Issue Assignment Intelligence – Atlassian</h3>
